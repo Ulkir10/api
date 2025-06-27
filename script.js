@@ -18,3 +18,22 @@ let infoFetch = fetch('https://jsonplaceholder.typicode.com/users')
     });
  })
  
+// Toggle Night Mode
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+// Функция поиска карточек по имени
+document.getElementById("searchInput").addEventListener("input", function () {
+  const search = this.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+  
+  cards.forEach(card => {
+    const name = card.querySelector("h2").textContent.toLowerCase();
+    if (name.includes(search)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
